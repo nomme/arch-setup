@@ -1,0 +1,23 @@
+---
+- hosts: local
+  remote_user: root
+  vars_prompt:
+    - name: "username"
+      prompt: "Username to add"
+      default: jimmieh
+      private: no
+    - name: "enable_ntp"
+      prompt: "Install and enable NTP (1=yes)"
+      default: "no"
+      private: no
+    - name: "enable_sound"
+      prompt: "Install ALSA and PulseAudio (1=yes)"
+      default: "no"
+      private: no
+
+  roles:
+      - add_user
+      - base_packages
+      - vim_env
+      - zsh_env
+

@@ -1,0 +1,33 @@
+---
+- name: Install X11 packages
+  pacman:
+      name: "{{ item }}"
+      state: present
+  with_items:
+      - xorg-server
+      - xorg-init
+      - rxvt-unicode
+
+        #      - slock
+        #      - xautolock
+
+        #- name: Install NTP
+        #  pacman:
+        #      name: ntp
+        #      state: present
+        #  when: enable_ntp | bool
+        #
+        #- name: Enable NTP
+        #  service:
+        #      name: ntpd
+        #      enabled: yes
+        #  when: enable_ntp | bool
+        #
+        #- name: Install sound packages
+        #      name: "{{ item }}"
+        #      state: present
+        #  with_items:
+        #      - alsa-utils
+        #      - pulseaudio
+        #        #- pavucontrol # only with x
+        #  when: enable_sound | bool
