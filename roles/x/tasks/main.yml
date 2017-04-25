@@ -5,24 +5,51 @@
       state: present
   with_items:
       - xorg-server
-      - xorg-init
+      - xorg-xinit
       - rxvt-unicode
+      - kdiff3
+      - awesome
 
-        #      - slock
-        #      - xautolock
+- name: Create Awesome config directory
+  become: yes
+  become_user: "{{ username }}"
+  file:
+      path: ~/.config/awesome
+      state: directory
 
-        #- name: Install NTP
-        #  pacman:
-        #      name: ntp
-        #      state: present
-        #  when: enable_ntp | bool
-        #
-        #- name: Enable NTP
-        #  service:
-        #      name: ntpd
-        #      enabled: yes
-        #  when: enable_ntp | bool
-        #
+# Possibly move to separate repo
+- name: Setup Awesome WM
+  become: yes
+  become_user: "{{ username }}"
+  copy:
+      src: awesome-rc.conf
+      dest: ~/.config/awesome/rc.conf
+
+- name: Copy .xinitrc
+  become: yes
+  become_user: "{{ username }}"
+  copy:
+      src: xinitrc
+      dest: ~/.xinitrc
+
+- name: Install screen lock
+  pacman:
+      name: "{{ item }}"
+      state: present
+  with_items:
+      - slock
+      - xautolock
+  when: setup_screenlock | bool
+
+- name: Patch xinitrc with xautolock
+  become: yes
+  become_user: "{{ username }}"
+  patch:
+      src: xinitrc-xautolock.patch
+      dest: ~/.xinitrc
+  when: setup_screenlock | bool
+
+
         #- name: Install sound packages
         #      name: "{{ item }}"
         #      state: present

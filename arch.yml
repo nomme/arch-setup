@@ -6,6 +6,10 @@
       prompt: "Username to add"
       default: jimmieh
       private: no
+    - name: "devel_tools"
+      prompt: "Install development tools"
+      default: "no"
+      private: no
     - name: "enable_ntp"
       prompt: "Install and enable NTP (1=yes)"
       default: "no"
@@ -14,10 +18,30 @@
       prompt: "Install ALSA and PulseAudio (1=yes)"
       default: "no"
       private: no
+    - name: "install_x"
+      prompt: "Install X11 and other utils"
+      default: "no"
+      private: no
+    - name: "setup_screenlock"
+      prompt: "Setup lock screen"
+      default: "no"
+      private: no
+      when: install_x | bool
+    - name: "btrfs_progs"
+      prompt: "Install Btrfs progs"
+      default: "no"
+      private: no
+    - name: "install_wireshark"
+      prompt: "Install Wireshark"
+      default: "no"
+      private: no
 
   roles:
       - add_user
       - base_packages
       - vim_env
       - zsh_env
+      - { role: x, when: install_x | bool }
+      - { role: ntp, when: enable_ntp | bool }
+      - networkmanager
 
