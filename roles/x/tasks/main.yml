@@ -22,8 +22,8 @@
   become: yes
   become_user: "{{ username }}"
   copy:
-      src: awesome-rc.conf
-      dest: ~/.config/awesome/rc.conf
+      src: awesome-rc.lua
+      dest: ~/.config/awesome/rc.lua
 
 - name: Copy .xinitrc
   become: yes
