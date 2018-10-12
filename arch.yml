@@ -2,6 +2,9 @@
 - hosts: local
   remote_user: root
   vars_prompt:
+    - name: "proxy"
+      prompt: "Proxy"
+      private: no
     - name: "username"
       prompt: "Username to add"
       default: jimmieh
@@ -36,6 +39,10 @@
       default: "no"
       private: no
 
+  environment:
+    http_proxy: "{{proxy}}"
+    https_proxy: "{{proxy}}"
+
   roles:
       - add_user
       - base_packages
@@ -44,4 +51,5 @@
       - { role: x, when: install_x | bool }
       - { role: ntp, when: enable_ntp | bool }
       - networkmanager
+      - bin_dir
 

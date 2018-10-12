@@ -46,7 +46,7 @@
   become_user: "{{ username }}"
   patch:
       src: xinitrc-xautolock.patch
-      dest: ~/.xinitrc
+      dest: /home/jimmieh/.xinitrc
   when: setup_screenlock | bool
 
 
