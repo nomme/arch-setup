@@ -9,6 +9,8 @@
       - rxvt-unicode
       - kdiff3
       - awesome
+      - ttf-dejavu
+      - chromium
 
 - name: Create Awesome config directory
   become: yes
