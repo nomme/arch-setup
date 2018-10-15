@@ -1,0 +1,57 @@
+# Install base packages
+bind-tools
+curl
+git
+htop
+openssh
+sudo
+tmux
+traceroute
+tree
+unzip
+vim
+zsh
+
+# Install development tools
+base-devel
+the_silver_searcher
+tig
+
+# Install sound packages
+alsa-utils
+pulseaudio
+pavucontrol
+
+# Install Btrfs progs
+btrfs-progs
+
+# Install Wireshark
+wireshark-qt
+
+# Install Network Manager
+networkmanager
+network-manager-applet
+
+# Install NTP
+ntp
+# Enable ntpd
+
+# Install X11 packages
+xorg-server
+xorg-xinit
+rxvt-unicode
+kdiff3
+awesome
+ttf-dejavu
+chromium
+
+# Install screen lock
+slock
+xautolock
+
+# Other
+glances
+
+# IM
+pidgin
+pidgin-sipe
