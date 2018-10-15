@@ -32,6 +32,9 @@ sudo_manifest="$repo_path/manifests/sudo_dawn.pp"
 echo "Running puppet with $manifest"
 puppet apply -v --modulepath=$modules_path $noop $manifest || error "puppet error"
 
+# vim +PlugInstall is not working in puppet for some reason...
+vim +PlugInstall +qall
+
 echo ""
 [ -f $sudo_manifest ] || { echo "No $sudo_manifest file"; exit 0; }
 

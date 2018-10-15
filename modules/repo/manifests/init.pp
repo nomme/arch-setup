@@ -17,6 +17,12 @@ class repo ($username = 'hogklint'){
     owner => "$username"
   }
 
+  exec { 'Install vim plugins':
+    command => '/usr/bin/vim +PlugInstall +qall',
+    provider => 'shell',
+    user => "$username",
+  }
+
   vcsrepo {"/home/$username/.zsh":
     ensure => present,
     provider => git,

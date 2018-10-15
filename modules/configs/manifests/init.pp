@@ -16,7 +16,6 @@ class configs ($username = 'hogklint') {
     target => "/home/$username/repos/user-files/gitconfig-benighted",
     owner => "$username"
   }
-# Could do "vim +PlugInstall +qall" here
 
   file {"/home/$username/.tmux.conf":
     ensure => 'link',
