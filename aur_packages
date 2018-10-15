@@ -1,4 +1,8 @@
 cower
+
 cntlm
+# and enable cntlm
+
 timeshift
+# and enable cronie
 
