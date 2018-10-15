@@ -39,6 +39,7 @@ ntp
 # Install X11 packages
 xorg-server
 xorg-xinit
+xorg-xrandr
 rxvt-unicode
 kdiff3
 awesome
@@ -52,6 +53,13 @@ xautolock
 # Other
 glances
 puppet
+numlockx
+udiskie
+acpi
+
+# Help grub-mkconfig find windows
+os-prober
+
 
 # IM
 pidgin
