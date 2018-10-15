@@ -56,4 +56,10 @@ class configs ($username = 'hogklint') {
     target => "/home/$username/repos/user-files/xinitrc-benighted",
     owner => "$username"
   }
+
+  file {"/home/$username/.Xmodmap":
+    ensure => 'link',
+    target => "/home/$username/repos/user-files/Xmodmap",
+    owner => "$username"
+  }
 }
