@@ -10,6 +10,7 @@
 node default {
 #include repo
 class {'sudo_configs': username => 'hogklint', }
+class {'packages': }
 #class {'repo': }
 }
 
