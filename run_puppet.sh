@@ -30,7 +30,7 @@ sudo_manifest="$repo_path/manifests/sudo_dawn.pp"
 [ -f $manifest ] || error "could not find manifest $manifest"
 
 echo "Running puppet with $manifest"
-puppet apply -v --modulepath=$modules_path $noop $manifest
+puppet apply -v --modulepath=$modules_path $noop $manifest || error "puppet error"
 
 echo ""
 [ -f $sudo_manifest ] || { echo "No $sudo_manifest file"; exit 0; }
