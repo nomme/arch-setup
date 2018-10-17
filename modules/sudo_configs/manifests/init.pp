@@ -16,4 +16,12 @@ class sudo_configs ($username = 'hogklint') {
     source => "/home/$username/repos/user-files/etc_configs/95-monitor-changes.rules",
     owner => "root",
   }
+
+  file {"/home/common":
+    ensure => 'directory',
+    owner => "root",
+  }
+
+# Create $username with uid 1003 (same as build server)
+# Groups wheel, uucp(ttyUSB)
 }

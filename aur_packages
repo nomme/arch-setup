@@ -6,3 +6,13 @@ cntlm
 timeshift
 # and enable cronie
 
+vmware-workstation
+
+# Android packages
+android-apktool
+android-sdk-build-tools
+android-studio
+
+visual-studio-code-bin
+
+plantuml

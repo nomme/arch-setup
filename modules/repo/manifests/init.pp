@@ -14,6 +14,7 @@ class repo ($username = 'hogklint'){
   file {"/home/$username/.vim/autoload/plug.vim":
     ensure => present,
     source => 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim',
+    replace => 'false',
     owner => "$username"
   }
 
@@ -41,6 +42,18 @@ class repo ($username = 'hogklint'){
     ensure => present,
     provider => git,
     source => 'https://github.com/nomme/arch-setup.git',
+    user => "$username",
+  }
+
+  file {"/home/$username/local":
+    ensure => 'directory',
+    owner => "$username",
+  }
+
+  vcsrepo {"/home/$username/local/tmuxifier":
+    ensure => present,
+    provider => git,
+    source => 'https://github.com/jimeh/tmuxifier.git',
     user => "$username",
   }
 }

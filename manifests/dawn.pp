@@ -1,16 +1,5 @@
-#class repo ($username = 'hogklint'){
-#  vcsrepo {"/home/$username/tmp/vim-env":
-#    ensure => present,
-#    provider => git,
-#    source => 'https://github.com/nomme/vim-env.git',
-#    user => "$username",
-#  }
-#}
-
 node default {
-#include repo
-class {'repo': username => 'hogklint', }
-class {'configs': username => 'hogklint', }
-#class {'repo': }
+class {'repo': username => 'jimmieh', }
+class {'configs': username => 'jimmieh', }
 }
 

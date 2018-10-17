@@ -11,7 +11,7 @@ class packages {
     'traceroute',
     'tree',
     'unzip',
-    'vim',
+    'gvim',
     'zsh',
   ]
   package { $base_packages: ensure => 'installed' }
@@ -21,6 +21,10 @@ class packages {
     'the_silver_searcher',
     'tig',
     'strace',
+    'jq',
+    'lldb',
+    'picocom',
+    'doxygen',
     ]
   package { $devel_packages: ensure => 'installed' }
 
@@ -35,6 +39,9 @@ class packages {
     'networkmanager',
     'network-manager-applet',
     'wireshark-qt',
+    'openconnect',
+    'networkmanager-openconnect',
+    'openvpn',
     ]
   package { $network_packages : ensure => 'installed' }
 
@@ -57,7 +64,10 @@ class packages {
     'xorg-server',
     'xorg-xinit',
     'xorg-xrandr',
+    'xorg-xev',
+    'xorg-xprop',
     'rxvt-unicode',
+    'arandr',
     'kdiff3',
     'awesome',
     'ttf-dejavu',
@@ -66,17 +76,46 @@ class packages {
     'xautolock',
     'pidgin',
     'pidgin-sipe',
+    'zim',
+    'feh',
+    'mplayer',
   ]
   package { $x_packages : ensure => 'installed' }
 
-  $other_packages = [
+  $filesystem_packages = [
     'btrfs-progs',
+    'nfs-utils',
+    'ntfs-3g',
+    'parted',
+    'udiskie',
+  ]
+  package { $filesystem_packages : ensure => 'installed' }
+
+  $other_packages = [
     'os-prober',
     'puppet',
     'numlockx',
-    'udiskie',
     'acpi',
+    'xf86-input-synaptics',
+    'debootstrap',
   ]
   package { $other_packages : ensure => 'installed' }
+
+  $monitoring_packages = [
+    'i7z',
+    'lshw',
+  ]
+  package { $monitoring_packages : ensure => 'installed' }
+
+#  $otherother_packages = [
+#    'atom',
+#    'ctags',
+#    'foxitreader',
+#    'libreoffice-still',
+#    'stoken',
+#    'tinyxml',
+#    'weechat',
+#  ]
+#  package { $otherother_packages : ensure => 'installed' }
 }
 
