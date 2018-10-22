@@ -85,6 +85,8 @@ class packages {
   $filesystem_packages = [
     'btrfs-progs',
     'nfs-utils',
+    'ecryptfs-utils',
+    'pam_mount',
     'ntfs-3g',
     'parted',
     'udiskie',
@@ -115,6 +117,7 @@ class packages {
 #    'stoken',
 #    'tinyxml',
 #    'weechat',
+#    'xf86-video-intel',
 #  ]
 #  package { $otherother_packages : ensure => 'installed' }
 }

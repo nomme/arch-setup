@@ -44,6 +44,11 @@ class configs ($username = 'hogklint') {
 #    owner => "$username"
 #  }
 
+  file {"/home/$username/local/android":
+    ensure => 'directory',
+    owner => "$username"
+  }
+
   file {"/home/$username/local/bin":
     ensure => 'link',
     target => "/home/$username/repos/user-files/bin",

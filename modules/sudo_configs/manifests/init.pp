@@ -19,9 +19,12 @@ class sudo_configs ($username = 'hogklint') {
 
   file {"/home/common":
     ensure => 'directory',
+    replace => 'false',
     owner => "root",
   }
 
 # Create $username with uid 1003 (same as build server)
 # Groups wheel, uucp(ttyUSB)
+
+# Insert nfs mounts in fstab
 }
