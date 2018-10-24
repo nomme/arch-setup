@@ -56,4 +56,11 @@ class repo ($username = 'hogklint'){
     source => 'https://github.com/jimeh/tmuxifier.git',
     user => "$username",
   }
+
+  vcsrepo {"/home/$username/repos/urxvt-color-themes":
+    ensure => present,
+    provider => git,
+    source => 'https://github.com/felixr/urxvt-color-themes.git',
+    user => "$username",
+  }
 }
