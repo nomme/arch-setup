@@ -23,6 +23,8 @@ class packages {
     'strace',
     'jq',
     'lldb',
+    'llvm',
+    'cmake',
     'picocom',
     'doxygen',
     ]
@@ -118,6 +120,7 @@ class packages {
 #    'tinyxml',
 #    'weechat',
 #    'xf86-video-intel',
+#    'redshift', #Remains to try
 #  ]
 #  package { $otherother_packages : ensure => 'installed' }
 }
