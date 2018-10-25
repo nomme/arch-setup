@@ -49,6 +49,14 @@ class configs ($username = 'hogklint') {
     owner => "$username"
   }
 
+  file {"/home/$username/local/android/repo":
+    ensure => present,
+    source => 'https://storage.googleapis.com/git-repo-downloads/repo',
+    replace => 'false',
+    mode => '0755',
+    owner => "$username",
+  }
+
   file {"/home/$username/local/bin":
     ensure => 'link',
     target => "/home/$username/repos/user-files/bin",

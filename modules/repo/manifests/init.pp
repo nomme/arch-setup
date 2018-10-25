@@ -15,7 +15,7 @@ class repo ($username = 'hogklint'){
     ensure => present,
     source => 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim',
     replace => 'false',
-    owner => "$username"
+    owner => "$username",
   }
 
   exec { 'Install vim plugins':
