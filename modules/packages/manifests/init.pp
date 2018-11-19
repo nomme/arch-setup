@@ -5,6 +5,7 @@ class packages {
     'git',
     'htop',
     'glances',
+    'sysstat',
     'openssh',
     'sudo',
     'tmux',
@@ -25,7 +26,9 @@ class packages {
     'lldb',
     'llvm',
     'cmake',
+    'lsof',
     'picocom',
+    'ctags',
     'doxygen',
     ]
   package { $devel_packages: ensure => 'installed' }
@@ -81,8 +84,14 @@ class packages {
     'zim',
     'feh',
     'mplayer',
+    'oxygen-icons',
   ]
   package { $x_packages : ensure => 'installed' }
+
+  $x_devel_packages = [
+    'code',
+  ]
+  package { $x_devel_packages : ensure => 'installed' }
 
   $filesystem_packages = [
     'btrfs-progs',
@@ -110,6 +119,12 @@ class packages {
     'lshw',
   ]
   package { $monitoring_packages : ensure => 'installed' }
+
+  $vmware_dependencies = [
+    'linux-headers',
+    'linux-lts-headers',
+  ]
+  package { $vmware_dependencies : ensure => 'installed' }
 
 #  $otherother_packages = [
 #    'atom',
