@@ -1,7 +1,7 @@
 class sudo_configs ($username = 'hogklint') {
-  file {"/etc/X11/xorg.conf.d/70-synaptics.conf":
+  file {"/etc/X11/xorg.conf.d/40-libinput.conf":
     ensure => present,
-    source => "/home/$username/repos/user-files/etc_configs/70-synaptics.conf",
+    source => "/home/$username/repos/user-files/etc_configs/40-libinput.conf",
     owner => "root",
   }
 

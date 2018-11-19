@@ -109,7 +109,6 @@ class packages {
     'puppet',
     'numlockx',
     'acpi',
-    'xf86-input-synaptics',
     'debootstrap',
   ]
   package { $other_packages : ensure => 'installed' }
