@@ -47,6 +47,7 @@ class packages {
     'openconnect',
     'networkmanager-openconnect',
     'openvpn',
+    'gnu-netcat',
     ]
   package { $network_packages : ensure => 'installed' }
 
