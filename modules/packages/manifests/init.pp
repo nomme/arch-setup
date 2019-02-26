@@ -30,6 +30,7 @@ class packages {
     'picocom',
     'ctags',
     'doxygen',
+    'gcovr',
     ]
   package { $devel_packages: ensure => 'installed' }
 
