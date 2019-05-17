@@ -1,5 +1,8 @@
 # arch-setup
-Arch setup applied with Ansible.
+Arch setup applied with Puppet.
+
+Install Puppet dependencies
+./install_deps.sh
 
 Execute with:
-ansible-playbook -i arch-setup/hosts arch-setup/arch.yml
+./run_puppet.sh
