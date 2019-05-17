@@ -22,6 +22,11 @@ class packages {
   ]
   package { $base_packages: ensure => 'installed' }
 
+  service {'cronie':
+    ensure => 'running',
+    enable => 'true',
+  }
+
   $devel_packages = [
     'base-devel',
     'the_silver_searcher',
