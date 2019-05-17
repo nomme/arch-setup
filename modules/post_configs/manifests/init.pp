@@ -49,4 +49,18 @@ class post_configs ($username = 'hogklint',
       user => "$username",
       minute => 0,
   }
+
+  exec {'init_ihu':
+      command => "repo init -u ssh://gerrit/Android_bsd_manifest -b master -m $ihu_manifest --reference /home/common/mirrors/ihu",
+      cwd => "/home/$username/sem/aosp_local",
+      path => "/home/$username/local/android:/usr/bin",
+      timeout => 10,
+  }
+
+  exec {'init_sem':
+      command => "repo init -u ssh://gerrit/vgtt_p2952_manifests -b master -m $sem_manifest --reference /home/common/mirrors/sem",
+      cwd => "/home/$username/sem/aosp_local",
+      path => "/home/$username/local/android:/usr/bin",
+      timeout => 10,
+  }
 }
