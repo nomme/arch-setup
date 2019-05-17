@@ -26,6 +26,7 @@ done
 shift $((OPTIND - 1))
 manifest="$repo_path/manifests/dawn.pp"
 sudo_manifest="$repo_path/manifests/sudo_dawn.pp"
+post_manifest="$repo_path/manifests/post_dawn.pp"
 [ $# -eq 1 ] && { manifest="$1"; sudo_manifest="$(dirname $manifest)/sudo_$(basename $manifest)"; }
 [ -f $manifest ] || error "could not find manifest $manifest"
 
@@ -41,3 +42,5 @@ echo ""
 echo "Sudo running puppet with $sudo_manifest"
 sudo puppet apply -v --modulepath=$modules_path $noop $sudo_manifest
 
+[ -f $sudo_manifest ] || { echo "No $post_manifest  file"; exit 0; }
+puppet apply -v --modulepath=$modules_path $noop $post_manifest || error "puppet error"
