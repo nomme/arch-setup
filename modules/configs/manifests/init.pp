@@ -80,7 +80,7 @@ class configs ($username = 'hogklint') {
     owner => "$username"
   }
 
-  file {"/home/$username/sem/aosp":
+  file {"/home/$username/sem/aosp_local":
     ensure => 'directory',
     owner => "$username"
   }
@@ -90,7 +90,7 @@ class configs ($username = 'hogklint') {
     owner => "$username"
   }
 
-  file {"/home/$username/ihu/aosp":
+  file {"/home/$username/ihu/aosp_local":
     ensure => 'directory',
     owner => "$username"
   }
