@@ -1,8 +1,0 @@
----
-- name: Add user
-  user:
-      name: "{{ username }}"
-      #password: test
-      group: users
-      groups: wheel
-      shell: /usr/bin/zsh
