@@ -1,4 +1,8 @@
 class packages {
+  package { 'vim':
+      ensure => 'absent',
+  }
+
   $base_packages = [
     'bind-tools',
     'curl',
@@ -14,6 +18,7 @@ class packages {
     'unzip',
     'gvim',
     'zsh',
+    'cronie',
   ]
   package { $base_packages: ensure => 'installed' }
 
@@ -82,7 +87,6 @@ class packages {
     'slock',
     'xautolock',
     'pidgin',
-    'pidgin-sipe',
     'zim',
     'feh',
     'mplayer',
@@ -121,11 +125,12 @@ class packages {
   ]
   package { $monitoring_packages : ensure => 'installed' }
 
-  $vmware_dependencies = [
-    'linux-headers',
-    'linux-lts-headers',
+  $container = [
+    'docker',
+    'qemu',
+    'libvirt',
   ]
-  package { $vmware_dependencies : ensure => 'installed' }
+  package { $container : ensure => 'installed' }
 
 #  $otherother_packages = [
 #    'atom',
