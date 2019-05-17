@@ -6,3 +6,6 @@ Install Puppet dependencies
 
 Execute with:
 ./run_puppet.sh
+
+Separate AUR script:
+./install_aur_packages.sh

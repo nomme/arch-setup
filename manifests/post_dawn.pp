@@ -4,5 +4,6 @@ node default {
 #        ihu_manifest => '<manifest name>',
 #        sem_manifest => '<manifest name>',
     }
+    class {'aur_packages': username => 'jimmieh', }
 }
 
