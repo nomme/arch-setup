@@ -1,8 +1,14 @@
 #!/bin/bash
 
-pushd "$HOME/tmp/aur"
+function error()
+{
+  echo "Error: $@" >&2
+  exit -1
+}
 
-[ ! -d $HOME/tmp/aur/auracle-git ] || error "No auracle-git dir found"j
+pushd "$HOME/tmp/aur" >/dev/null
+
+[ -d $HOME/tmp/aur/auracle-git ] || error "No auracle-git dir found"
 
 pushd $HOME/tmp/aur/auracle-git
 makepkg --syncdeps --install --needed
