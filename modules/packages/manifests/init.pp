@@ -121,6 +121,7 @@ class packages {
     'numlockx',
     'acpi',
     'debootstrap',
+    'snapper',
   ]
   package { $other_packages : ensure => 'installed' }
 
