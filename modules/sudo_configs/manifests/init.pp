@@ -1,5 +1,6 @@
 class sudo_configs ($username = 'hogklint',
         $buildserver = 'core-build-01') {
+
   file {"/etc/X11/xorg.conf.d/40-libinput.conf":
     ensure => present,
     source => "/home/$username/repos/user-files/etc_configs/40-libinput.conf",
@@ -16,6 +17,21 @@ class sudo_configs ($username = 'hogklint',
     ensure => present,
     source => "/home/$username/repos/user-files/etc_configs/95-monitor-changes.rules",
     owner => "root",
+  }
+
+  file_line {"Decrypt at login":
+    path => '/etc/pam.d/system-login',
+    ensure => present,
+    line => 'auth       optional   pam_exec.so expose_authtok /etc/pam_cryptsetup.sh',
+    after => 'auth +include +system-auth',
+    match => "auth.*pam_cryptsetup.sh",
+  }
+
+  file {"/etc/pam_cryptsetup.sh":
+    ensure => present,
+    source => "/home/$username/repos/user-files/etc_configs/pam_cryptsetup.sh",
+    owner => "root",
+    mode => "0544",
   }
 
   file_line {"ntp.conf":
