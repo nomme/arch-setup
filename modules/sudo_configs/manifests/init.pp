@@ -145,4 +145,44 @@ class sudo_configs ($username = 'hogklint',
     replace => false,
   }
 
+  exec {'Add snapper config':
+      unless => '/bin/test -f /etc/snapper/configs/root',
+      command => "snapper -c root create-config /",
+      path => "/usr/bin",
+  }
+
+  file_line {'Modify snapper hourly config':
+      path => '/etc/snapper/configs/root',
+      ensure => present,
+      line => 'TIMELINE_LIMIT_HOURLY="5"',
+      match => 'TIMELINE_LIMIT_HOURLY',
+  }
+
+  file_line {'Modify snapper daily config':
+      path => '/etc/snapper/configs/root',
+      ensure => present,
+      line => 'TIMELINE_LIMIT_DAILY="7"',
+      match => 'TIMELINE_LIMIT_DAILY',
+  }
+
+  file_line {'Modify snapper weekly config':
+      path => '/etc/snapper/configs/root',
+      ensure => present,
+      line => 'TIMELINE_LIMIT_WEEKLY="2"',
+      match => 'TIMELINE_LIMIT_WEEKLY',
+  }
+
+  file_line {'Modify snapper montly config':
+      path => '/etc/snapper/configs/root',
+      ensure => present,
+      line => 'TIMELINE_LIMIT_MONTHLY="0"',
+      match => 'TIMELINE_LIMIT_MONTHLY',
+  }
+
+  file_line {'Modify snapper yearly config':
+      path => '/etc/snapper/configs/root',
+      ensure => present,
+      line => 'TIMELINE_LIMIT_YEARLY="0"',
+      match => 'TIMELINE_LIMIT_YEARLY',
+  }
 }
