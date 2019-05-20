@@ -30,6 +30,7 @@ class post_configs ($username = 'hogklint',
   }
 
   exec {'init_ihu_mirror':
+      unless => '/bin/test -d /home/common/mirrors/ihu/.repo',
       command => "repo init --mirror -u ssh://gerrit/Android_bsd_manifest -b devel -m $ihu_manifest",
       cwd => "/home/common/mirrors/ihu",
       path => "/home/$username/local/android:/usr/bin",
@@ -37,6 +38,7 @@ class post_configs ($username = 'hogklint',
   }
 
   exec {'init_sem_mirror':
+      unless => '/bin/test -d /home/common/mirrors/sem/.repo',
       command => "repo init --mirror -u ssh://gerrit/vgtt_p2952_manifests -b master -m $sem_manifest --reference /home/common/mirrors/ihu",
       cwd => "/home/common/mirrors/sem",
       path => "/home/$username/local/android:/usr/bin",
@@ -51,8 +53,8 @@ class post_configs ($username = 'hogklint',
   }
 
   exec {'init_ihu':
-      command => "repo init -u ssh://gerrit/Android_bsd_manifest -b master -m $ihu_manifest --reference /home/common/mirrors/ihu",
-      cwd => "/home/$username/sem/aosp_local",
+      command => "repo init -u ssh://gerrit/Android_bsd_manifest -b devel -m $ihu_manifest --reference /home/common/mirrors/ihu",
+      cwd => "/home/$username/ihu/aosp_local",
       path => "/home/$username/local/android:/usr/bin",
       timeout => 10,
   }
