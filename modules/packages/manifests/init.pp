@@ -19,6 +19,7 @@ class packages {
     'gvim',
     'zsh',
     'cronie',
+    'rsync',
   ]
   package { $base_packages: ensure => 'installed' }
 
