@@ -31,6 +31,7 @@ class packages {
   $devel_packages = [
     'base-devel',
     'the_silver_searcher',
+    'fd',
     'tig',
     'strace',
     'jq',
