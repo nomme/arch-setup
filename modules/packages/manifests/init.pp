@@ -39,6 +39,7 @@ class packages {
     'llvm',
     'cmake',
     'lsof',
+    'python-pip',
     'picocom',
     'ctags',
     'doxygen',
