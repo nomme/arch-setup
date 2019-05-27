@@ -140,6 +140,11 @@ class packages {
   ]
   package { $container : ensure => 'installed' }
 
+  service {'docker':
+    ensure => 'running',
+    enable => 'true',
+  }
+
 #  $otherother_packages = [
 #    'atom',
 #    'ctags',
