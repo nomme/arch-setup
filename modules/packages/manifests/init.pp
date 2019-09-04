@@ -21,6 +21,8 @@ class packages {
     'cronie',
     'rsync',
   ]
+#'bolt',
+#'fwupd',
   package { $base_packages: ensure => 'installed' }
 
   service {'cronie':
@@ -44,6 +46,9 @@ class packages {
     'ctags',
     'doxygen',
     'gcovr',
+    'python2-pyserial',
+    'gdb',
+    'bc',
     ]
   package { $devel_packages: ensure => 'installed' }
 
