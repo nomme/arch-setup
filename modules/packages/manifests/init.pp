@@ -16,6 +16,7 @@ class packages {
     'traceroute',
     'tree',
     'unzip',
+    'p7zip',
     'gvim',
     'zsh',
     'cronie',
