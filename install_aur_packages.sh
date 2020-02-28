@@ -19,7 +19,10 @@ android-apktool
 android-sdk-build-tools
 android-studio
 plantuml
-pidgin-sipe"
+pidgin-sipe
+urlview
+scrcpy
+path-extractor"
 #timeshift/snapper
 #ttf-ms-fonts
 
