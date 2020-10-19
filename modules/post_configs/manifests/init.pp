@@ -45,6 +45,14 @@ class post_configs ($username = 'hogklint',
       timeout => 10,
   }
 
+  exec {'init_sem25_mirror':
+      unless => '/bin/test -d /home/common/mirrors/sem25/.repo',
+      command => "repo init --mirror -u ssh://10.236.95.27:29418/10032962_sem25_manifests -b master -m default.xml --reference /home/common/mirrors/sem",
+      cwd => "/home/common/mirrors/sem25",
+      path => "/home/$username/local/android:/usr/bin",
+      timeout => 10,
+  }
+
   cron {'sync_mirrors':
       ensure => 'present',
       command => "/home/$username/local/bin/update_aosp_mirrors.sh",
