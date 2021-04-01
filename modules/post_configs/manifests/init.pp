@@ -47,7 +47,7 @@ class post_configs ($username = 'hogklint',
 
   exec {'init_sem25_mirror':
       unless => '/bin/test -d /home/common/mirrors/sem25/.repo',
-      command => "repo init --mirror -u ssh://10.236.95.27:29418/10032962_sem25_manifests -b master -m default.xml --reference /home/common/mirrors/sem",
+      command => "repo init --mirror -u ssh://gerrit/10032962_sem25_manifests -b master -m default.xml --reference /home/common/mirrors/sem",
       cwd => "/home/common/mirrors/sem25",
       path => "/home/$username/local/android:/usr/bin",
       timeout => 10,

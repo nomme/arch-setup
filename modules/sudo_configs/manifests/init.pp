@@ -41,11 +41,11 @@ class sudo_configs ($username = 'hogklint',
     after => 'NTP pool',
   }
 
-  file_line {"Build server hosts":
-    path => '/etc/hosts',
+  file {"/etc/docker/daemon.json":
     ensure => present,
-    line => "10.239.124.50 $buildserver",
-    match => "$buildserver",
+    owner => "root",
+    mode => "0644",
+    replace => 'no',
   }
 
   file_line {"Docker insecure nexus registry":
